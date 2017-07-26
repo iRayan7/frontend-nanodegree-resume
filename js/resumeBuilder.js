@@ -98,7 +98,7 @@ function bioDisplay() {
         formatedSkills = HTMLskills.replace("%data%", bio.skills[2]);
         $("#header").append(formatedSkills);
     }
-};
+}
 
 bioDisplay();
 
