@@ -94,10 +94,10 @@ bio.display = function() {
         bio.skills.forEach(function(skill){
             var formatedSkills = HTMLskills.replace("%data%", skill);
         $("#header").append(formatedSkills);
-        })
+        });
         
     }
-}
+};
 
 bio.display();
 
@@ -118,7 +118,7 @@ work.display = function() {
         $(".work-entry:last").append(HTMLworkDescription.replace("%data%", job.description));
 
     });
-}
+};
 
 work.display();
 
