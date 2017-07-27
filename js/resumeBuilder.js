@@ -22,7 +22,7 @@ var work = {
 var education = {
     "schools": [
         {
-            "school": "KSU",
+            "name": "KSU",
             "location": "Riyadh",
             "majors": ["SWE"],
             "dates": "2018",
@@ -66,7 +66,7 @@ var bio = {
     "skills": [
         "Front end ninja", "back end ninja", "real living ninja"
     ],
-    "bioPic": "images/aaa1.png"
+    "biopic": "images/aaa1.png"
 };
 
 bio.display = function() {
@@ -85,7 +85,7 @@ bio.display = function() {
     $("#topContacts, #footerContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
 
 
-    $("#header").append(HTMLbioPic.replace("%data%", bio.bioPic));
+    $("#header").append(HTMLbioPic.replace("%data%", bio.biopic));
     $("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage));
 
 
@@ -99,7 +99,7 @@ bio.display = function() {
     }
 };
 
-bio.display();
+
 
 
 work.display = function() {
@@ -120,7 +120,7 @@ work.display = function() {
     });
 };
 
-work.display();
+
 
 projects.display = function () {
     projects.projects.forEach(function (project) {
@@ -129,24 +129,23 @@ projects.display = function () {
         $(".project-entry:last").append(HTMLprojectTitle.replace("%data%", project.title));
         $(".project-entry:last").append(HTMLprojectDates.replace("%data%", project.dates));
         $(".project-entry:last").append(HTMLprojectDescription.replace("%data%", project.description));
-        $(".project-entry:last").append(HTMLprojectImage.replace("%data%", project.images));
 
         if (project.images.length > 0) {
             project.images.forEach(function (image) {
-                var formattedImage = HTMLprojectImage.replace("%data%", project.images[image]);
+                var formattedImage = HTMLprojectImage.replace("%data%", image);
                 $("project-entry:last").append(formattedImage);
             });
         }
     });
 };
 
-projects.display();
+
 
 education.display = function () {
     education.schools.forEach(function (school) {
         $("#education").append(HTMLschoolStart);
 
-        $(".education-entry:last").append(HTMLschoolName.replace("%data%", school.school));
+        $(".education-entry:last").append(HTMLschoolName.replace("%data%", school.name));
         $(".education-entry:last").append(HTMLschoolDegree.replace("%data%", school.degree));
         $(".education-entry:last").append(HTMLschoolDates.replace("%data%", school.dates));
         $(".education-entry:last").append(HTMLschoolLocation.replace("%data%", school.location));
@@ -172,6 +171,10 @@ education.display = function () {
 
 
 };
+
+bio.display();
+work.display();
+projects.display();
 education.display();
 
 $("#mapDiv").append(googleMap);
